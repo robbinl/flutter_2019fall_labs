@@ -15,11 +15,11 @@ class MyApp extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                height: double.infinity,
-                width: 100.0,
-                color: Colors.red,
-                child: Text('Container 1'),
-              ),
+                  height: double.infinity,
+                  width: 100.0,
+                  color: Colors.red,
+                  child: Text('Container 1'),
+                ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
