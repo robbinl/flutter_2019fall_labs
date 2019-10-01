@@ -8,45 +8,24 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        backgroundColor: Colors.teal,
-        body: SafeArea(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Container(
-                  height: double.infinity,
-                  width: 100.0,
-                  color: Colors.red,
-                  child: Text('Container 1'),
-                ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    height: 100.0,
-                    width: 100.0,
-                    color: Colors.yellow,
-                    child: Text('Container 2'),
-                  ),
-                  Container(
-                    height: 100.0,
-                    width: 100.0,
-                    color: Colors.green,
-                    child: Text('Container 3'),
-                  ),
-                ],
-              ),
-              Container(
-                height: double.infinity,
-                width: 100.0,
-                color: Colors.blue,
-                child: Text('Container 4'),
-              ),
-            ],
-          ),
-        ),
+      theme: ThemeData.dark().copyWith(
+        primaryColor: Color(0xFF0B1034),
+        // the 0xFF is the transparency, then 0B Red, 10 Green, 34 Blue
+        scaffoldBackgroundColor: Color(0xFF0B1034),
       ),
+      home: MyFirstPage(),
     );
+  }
+}
+
+class MyFirstPage extends StatefulWidget {
+  @override
+  _MyFirstPageState createState() => _MyFirstPageState();
+}
+
+class _MyFirstPageState extends State<MyFirstPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }
