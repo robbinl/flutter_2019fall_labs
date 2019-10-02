@@ -7,7 +7,6 @@ class MyFirstPage extends StatefulWidget {
 
 class _MyFirstPageState extends State<MyFirstPage> {
   bool _enabled = false;
-  bool _reset = false;
   int _timesClicked = 0;
   String _msg1 = 'Disabled';
   String _msg2 = 'Disabled';
