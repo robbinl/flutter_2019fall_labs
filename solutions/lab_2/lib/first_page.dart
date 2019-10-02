@@ -8,8 +8,8 @@ class MyFirstPage extends StatefulWidget {
 class _MyFirstPageState extends State<MyFirstPage> {
   bool _enabled = false;
   int _timesClicked = 0;
-  String _msg1 = 'Disabled';
-  String _msg2 = 'Disabled';
+  String _msg1 = '';
+  String _msg2 = '';
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +43,7 @@ class _MyFirstPageState extends State<MyFirstPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Fun'),
+        title: Text('Button Functionality Demo'),
       ),
       body: Container(
         child: Column(
@@ -62,8 +62,8 @@ class _MyFirstPageState extends State<MyFirstPage> {
                           _msg2 = 'Reset';
                           print('_enabled is true');
                         } else {
-                          _msg1 = 'Disabled';
-                          _msg2 = 'Disabled';
+                          _msg1 = '';
+                          _msg2 = '';
                           print('_enabled is false');
                         }
                       });
