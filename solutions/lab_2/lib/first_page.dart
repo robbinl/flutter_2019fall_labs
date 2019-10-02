@@ -42,11 +42,9 @@ class _MyFirstPageState extends State<MyFirstPage> {
                         _enabled = value;
                         if (_enabled) {
                           _msg1 = 'Enabled';
-
                           print('_enabled is true');
                         } else {
                           _msg1 = '';
-
                           print('_enabled is false');
                         }
                       });
