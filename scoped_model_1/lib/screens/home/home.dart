@@ -14,7 +14,7 @@ class MyHomePage extends StatelessWidget {
       model: scopedCounter,
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Hello World with Scoped Model'),
+          title: Text('Scoped Model Example 1'),
         ),
         body: Center(
           child: Column(
