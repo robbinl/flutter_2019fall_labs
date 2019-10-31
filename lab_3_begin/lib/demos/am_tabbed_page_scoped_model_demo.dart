@@ -36,47 +36,40 @@ class MyModel extends Model {
   }
 }
 
-class NumbersCard extends StatelessWidget {
-  final Number instantsNumber;
-
-  const NumbersCard({Key key, this.instantsNumber}) : super(key: key);
-
+class MyTabbedScopedModelApp1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Center(
-        child: Stack(
-          children: <Widget>[
-            Image.asset(
-              instantsNumber.image,
-              height: double.infinity,
-              width: double.infinity,
-              fit: BoxFit.cover,
-            ),
-          ],
-        ),
+    return MaterialApp(
+      title: 'Lab3 Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.lightGreen,
       ),
+      home: HomePage(title: 'Lab3 Tabbed and Scoped Model Demo'),
     );
   }
 }
 
-class NumbersList extends StatelessWidget {
+class HomePage extends StatelessWidget {
+  final String title;
+
+  const HomePage({Key key, this.title}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return ScopedModelDescendant<MyModel>(
-      builder: (context, _, model) {
-        return Expanded(
-          child: GridView.count(
-            crossAxisCount: 2,
-            padding: EdgeInsets.all(6.0),
-            children: model.chosenNumber.map((numberType) {
-              return NumbersCard(
-                instantsNumber: numberType,
-              );
-            }).toList(),
-          ),
-        );
-      },
+    return ScopedModel<MyModel>(
+      model: MyModel(),
+      child: Scaffold(
+        backgroundColor: Colors.lightGreen,
+        appBar: AppBar(
+          title: Text(title),
+        ),
+        body: Column(
+          children: <Widget>[
+            NumbersCarousel(),
+            NumbersList(),
+          ],
+        ),
+      ),
     );
   }
 }
@@ -203,40 +196,47 @@ class _NumbersCarouselState extends State<NumbersCarousel>
   }
 }
 
-class MyTabbedScopedModelApp1 extends StatelessWidget {
+class NumbersCard extends StatelessWidget {
+  final Number instantsNumber;
+
+  const NumbersCard({Key key, this.instantsNumber}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Lab3 Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.lightGreen,
+    return Card(
+      child: Center(
+        child: Stack(
+          children: <Widget>[
+            Image.asset(
+              instantsNumber.image,
+              height: double.infinity,
+              width: double.infinity,
+              fit: BoxFit.cover,
+            ),
+          ],
+        ),
       ),
-      home: HomePage(title: 'Lab3 Tabbed and Scoped Model Demo'),
     );
   }
 }
 
-class HomePage extends StatelessWidget {
-  final String title;
-
-  const HomePage({Key key, this.title}) : super(key: key);
-
+class NumbersList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ScopedModel<MyModel>(
-      model: MyModel(),
-      child: Scaffold(
-        backgroundColor: Colors.lightGreen,
-        appBar: AppBar(
-          title: Text(title),
-        ),
-        body: Column(
-          children: <Widget>[
-            NumbersCarousel(),
-            NumbersList(),
-          ],
-        ),
-      ),
+    return ScopedModelDescendant<MyModel>(
+      builder: (context, _, model) {
+        return Expanded(
+          child: GridView.count(
+            crossAxisCount: 2,
+            padding: EdgeInsets.all(6.0),
+            children: model.chosenNumber.map((numberType) {
+              return NumbersCard(
+                instantsNumber: numberType,
+              );
+            }).toList(),
+          ),
+        );
+      },
     );
   }
 }
